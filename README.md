@@ -1,4 +1,4 @@
-Java Geocalc ![travis](https://api.travis-ci.org/grumlimited/geocalc.svg?branch=master "build")
+Java Geocalc ![travis](https://travis-ci.org/grumlimited/geocalc.svg?branch=master "build")
 =======
 
 Geocalc is a simple java library aimed at doing arithmetics with Earth coordinates. 
@@ -18,9 +18,16 @@ This library implements in Java lots of ideas from [Movable-Type](http://www.mov
 
 ## Changelog
 
+### 0.5.8
+* Renamed in `EarthCalc.EARTH_DIAMETER` to `EarthCalc.EARTH_RADIUS`. Thanks [pradeepmurugesan](https://github.com/pradeepmurugesan)
+
+
+### 0.5.7
+* Bugfix in `EarthCalc.gcdDictance` [24](https://github.com/grumlimited/geocalc/issues/24). Thanks [dusiema](https://github.com/dusiema)
+
 ### 0.5.6
-* Replaced `new BoundingArea(...)` with `BoundingAread.at`
-* Bugfix in `EarthCalc.pointAt`. Normalising `λ2` so that bearing starts clockwise from north.
+* Replaced `new BoundingArea(...)` with `BoundingArea.at`
+* Bugfix in `EarthCalc.pointAt`. Normalising `λ2` so that bearing starts clockwise from north
 
 ### 0.5.5
 * Renamed `getVincentyFinalBearing` to `vincentyFinalBearing`
@@ -30,7 +37,7 @@ This library implements in Java lots of ideas from [Movable-Type](http://www.mov
 * added `EarthCalc.midPoint(p1, p2)`
 * renamed `EarthCalc.pointRadialDistance()` to `EarthCalc.pointAt(...)`
 * renamed `BoundingArea.boundingArea()` to `BoundingArea.around(...)`
-* Removed `get...()` out of `Point` and `BoundingArea` 
+* removed `get...()` out of `Point` and `BoundingArea` 
 * added maven javadoc plugin
 
 ### 0.5.3
@@ -52,16 +59,16 @@ This library implements in Java lots of ideas from [Movable-Type](http://www.mov
     <dependency>
 	    <groupId>com.github.grumlimited</groupId>
 	    <artifactId>geocalc</artifactId>
-	    <version>0.5.6</version>
+	    <version>0.5.8</version>
 	</dependency>
 	
-Please refer to [jitpack.io/#grumlimited/geocalc/0.5.6](https://jitpack.io/#grumlimited/geocalc/0.5.6) for more information
+Please refer to [jitpack.io/#grumlimited/geocalc/0.5.8](https://jitpack.io/#grumlimited/geocalc/0.5.8) for more information
 
 ## API
 
 can be found here:
 
-[grumlimited.co.uk/geocalc/0.5.6](http://www.grumlimited.co.uk/geocalc/0.5.6)
+[grumlimited.co.uk/geocalc/0.5.8](http://www.grumlimited.co.uk/geocalc/0.5.8)
 
 ## Usage
 
@@ -174,7 +181,7 @@ Now say you have a BoundingArea,
       //somewhere in Europe, not sure where ;-)
       Point northEast = Point.at(Coordinate.fromDegrees(70), Coordinate.fromDegrees(145));
       Point southWest = Point.at(Coordinate.fromDegrees(50), Coordinate.fromDegrees(110));
-      BoundingArea boundingArea = new BoundingArea(northEast, southWest);
+      BoundingArea boundingArea = BoundingArea.at(northEast, southWest);
       
 you can determine whether a point is contained within that area using:
       
